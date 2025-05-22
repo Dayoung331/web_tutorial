@@ -1,0 +1,45 @@
+<div class="container">
+  <section class="contact-section" style="text-align:center; margin-top:120px; margin-bottom:80px;">
+    <h2 class="contact-title" style="font-size:2.3rem; font-weight:700; color:#23234a; margin-bottom:18px;">For any questions please mail us:</h2>
+    <div class="contact-mail" style="font-size:2.1rem; font-weight:700; background: linear-gradient(90deg, #5b9df9, #a259c6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;">hi@pavanmg.in</div>
+  </section>
+</div>
+<div class="container contact-footer-nav" style="margin-bottom:0;">
+  <div class="footer-inline-row" style="display:flex;align-items:center;justify-content:center;gap:32px;min-height:60px;">
+    <img src="assets/images/logo.png" alt="로고" class="logo-img" style="width:36px;height:36px;border:none;box-shadow:none;">
+    <span style="font-size:1rem;color:#57577a;">+91 12345 09876</span>
+    <span style="font-size:1rem;color:#57577a;">info@example.com</span>
+    <a href="#" style="display:inline-block;"><img src="assets/images/github.png" alt="GitHub" style="width:22px;height:22px;opacity:0.7;"></a>
+    <a href="#" style="display:inline-block;"><img src="assets/images/twitter.png" alt="Twitter" style="width:22px;height:22px;opacity:0.7;"></a>
+    <a href="#" style="display:inline-block;"><img src="assets/images/linkedin.png" alt="LinkedIn" style="width:22px;height:22px;opacity:0.7;"></a>
+  </div>
+  <hr class="footer-divider" style="border:none;border-top:1.5px solid #e0e0e0;margin:18px 0 0 0;">
+  <div class="footer-bottom" style="display:flex;align-items:center;justify-content:space-between;gap:24px;">
+    <div class="contact-footer-links">
+      <a href="#" data-page="home">Home</a>
+      <a href="#" data-page="about">About</a>
+      <a href="#" data-page="tech">Technologies</a>
+      <a href="#" data-page="project">Projects</a>
+      <a href="#" data-page="contact">Contact</a>
+    </div>
+    <div class="footer-copyright" style="color:#888;font-size:0.98rem;">
+      Designed and built by <a href="#" style="color:#5b9df9;text-decoration:none;font-weight:500;">Pavan MG</a> with <a href="#" style="color:#a259c6;text-decoration:none;font-weight:500;">Love &amp; Coffee</a>
+    </div>
+  </div>
+</div>
+<script>
+  // 하단 네비게이션 클릭 시 SPA처럼 동작
+  document.querySelectorAll('.contact-footer-links a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const page = this.getAttribute('data-page');
+      if(page) {
+        fetch(page + '.html')
+          .then(res => res.text())
+          .then(html => {
+            document.getElementById('main-content').innerHTML = html;
+          });
+      }
+    });
+  });
+</script> 
